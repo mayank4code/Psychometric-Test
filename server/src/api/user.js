@@ -4,6 +4,11 @@ const bcrypt = require('bcrypt');
 const jwt = require("jsonwebtoken");
 const fetchPerson = require("../middlewares");
 
+
+router.get('/', (req,res)=>{
+    res.send("Anurag");
+})
+
 //Register
 router.post("/register", async(req,res)=>{
     try{
@@ -24,6 +29,7 @@ router.post("/register", async(req,res)=>{
 
 //LOGIN
 router.post("/login", async (req,res)=>{
+    console.log("login request received");
     try {
         const user = await User.findOne({mobile: req.body.mobile});
 

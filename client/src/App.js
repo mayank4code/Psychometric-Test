@@ -5,6 +5,8 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
 import Test from './components/Test';
+import Register_M from './components/mayank/Register_M';
+
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/temp/register" element={<Register_M />} />
           <Route path="/test" element={<Test />} />
         </Routes>
       </div>

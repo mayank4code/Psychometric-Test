@@ -11,6 +11,7 @@ router.get('/', (req,res)=>{
 
 //Register
 router.post("/register", async(req,res)=>{
+    console.log("register request received");
     try{
         //generate new password
         const salt = await bcrypt.genSalt(10);
@@ -21,8 +22,9 @@ router.post("/register", async(req,res)=>{
 
         //save user and response
         const user = await newUser.save();
-        res.status(200).json(user);
+        res.status(200).json({success: true, user});
     } catch(err){
+        console.log(err);
         res.status(500).json(err);
     }
 });
@@ -55,6 +57,10 @@ router.post("/login", async (req,res)=>{
     } catch(err){
         res.status(500).json({success: false, message: err});
     }
+})
+
+router.post("/verify-user", fetchPerson, (req,res)=>{
+    res.json({success: true, message: "Token verified succesfully"});
 })
 
 

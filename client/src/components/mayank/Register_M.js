@@ -17,6 +17,13 @@ const Register_M = () => {
             },
             body: JSON.stringify(credentials)
         });
+        let response1 = await response.json();
+        if(response1.success==true){
+            navigate("/login");
+        }
+        else{
+            alert("Cannot register, try again");
+        }
     }
 
     const onChange = (e)=>{
@@ -26,6 +33,7 @@ const Register_M = () => {
 
   return (
     <section className="vh-100">
+    <div style={{textAlign:"center"}} ><h2>Registration</h2></div>
         <div className='registerForm'>
             <div>
 
@@ -79,8 +87,8 @@ const Register_M = () => {
 
             <div className="text-center text-lg-start mt-4 pt-2">
             <button type="button" className="btn btn-primary btn-lg" onClick={handleSubmit}
-            >Sign In</button>
-            <p className="small fw-bold mt-2 pt-1 mb-0">Already have an account? <Link to="/signup"
+            >Register</button>
+            <p className="small fw-bold mt-2 pt-1 mb-0">Already have an account? <Link to="/login"
                 className="link-danger">login</Link></p>
             
             </div>

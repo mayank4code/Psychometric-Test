@@ -6,12 +6,12 @@ const fetchPerson = (req, res, next) => {
     if (!token) {
       return res
         .status(401)
-        .send({ statusText: statusText.TOKEN_NOT_FOUND, isLoggedIn: false });
+        .send({ success: false, message: "Token not found"});
     }
   
     try {
       const data = jwt.verify(token, process.env.JWT_SECRET);
-      req.mongoId = data.person.mongoId;
+      req.mongoID = data.mongoID;
   
       next();
     } catch (err) {  

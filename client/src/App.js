@@ -1,9 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/NavBar';
-import Home from './components/Home';
+// import Home from './components/Home';
+import Page from "../src/components/neha/Page";
+import Page2 from "../src/components/neha/Page2";
 import Login from './components/Login';
-import Register from './components/Register';
+// import Register from './components/Register';
 import Test from './components/Test';
 import Register_M from './components/mayank/Register_M';
 import Analytics from "./components/Admin/Analytics";

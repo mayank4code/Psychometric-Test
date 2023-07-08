@@ -1,0 +1,201 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* PAGE 1 */
+
+.container-page1 {
+  position: relative;
+}
+
+.container-page1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.2;
+}
+
+.content{
+  position: relative;
+}
+
+.img-container {
+  /* height: 33vh; */
+  background-color: #C56533;
+  margin-top: 70px;
+
+}
+
+.image {
+  height: auto;
+  width: 100%;
+  padding: 20px;
+}
+
+.text-1 {
+  color: rgb(0, 0, 0);
+
+
+}
+
+.container-2 {
+  display: block;
+  width: 30vw;
+  margin: 0 auto;
+}
+
+.know-btn {
+  display: block;
+  width : 250px;
+  margin: 0 auto;
+  background-color: #C56533;
+  color: white;
+  padding: 5px 40px;
+  border-radius: 10px;
+  font-weight: bold;
+  border-style: none;
+  text-decoration: none;
+  
+}
+
+/* PAGE 2 */
+
+.container-page2 {
+  padding-top: 100px;
+}
+
+.brown-bg {
+  background-color: #C7682F;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.text-2 {
+  padding: 20px 10px;
+  width: 100%;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+
+.test-button {
+  display: block;
+  margin: 30px auto;
+  padding: 5px 30px;
+  border: 2px solid #C16534;
+  background: none;
+  font-weight: lighter;
+}
+
+.text-3 {
+  color: white;
+  font-size: 20px;
+  display: block;
+  width: 200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.content {
+  margin-top: auto;
+}
+
+hr {
+  height: 2px;
+  border-top: 1px solid #C16534;
+}
+
+/* .btn-container{
+  padding : 50px;
+} */
+
+/* :root{
+  --container-width-lg: 75%;
+--container-width-md: 86%;
+--container-width-sm: 90%;
+} */
+
+
+@media screen and (min-width: 600px) {
+  .container-page2 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  
+  .brown-bg {
+    width: 50vw;
+    height: 70vh;
+  }
+  
+
+  .text-2 {
+    width: 50vw;
+    padding: 0 30px;
+
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .container-page1 {
+     
+    /* opacity: 0.2; */
+  }
+
+
+  .container-page1::before {
+    content: "";
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.2;
+  }
+
+  .content{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-around; 
+  }
+  
+
+  .image {
+    width: 50vw;
+    height: 100vh;
+  }
+
+  .text-1 {
+    font-size: 35px;
+    font-weight: bold;
+    line-height: 50px;
+    letter-spacing: -1px;
+    color: white;
+  }
+
+  
+
+  .img-div {
+    height: 200x;
+    background-color: #C56533;
+  }
+
+}

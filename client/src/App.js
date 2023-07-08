@@ -6,6 +6,8 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Test from './components/Test';
 import Register_M from './components/mayank/Register_M';
+import Page from './components/neha/Page';
+import Page2 from './components/neha/Page2';
 
 
 function App() {
@@ -14,7 +16,10 @@ function App() {
       <div>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
+          {/* <Route path="/" element={<Home />} />*/}
+          <Route path="/" element={<Page />} />
+          <Route path="/page2" element={<Page2 />} />
+
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register_M />} />
           {/* <Route path="/temp/register" element={<Register_M />} /> */}

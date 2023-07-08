@@ -3,11 +3,8 @@ const User = require("../mongodb/Models/User");
 const bcrypt = require('bcrypt');
 const jwt = require("jsonwebtoken");
 const fetchPerson = require("../middlewares");
+const Question = require("../mongodb/Models/Question");
 
-
-router.get('/', (req,res)=>{
-    res.send("Anurag");
-})
 
 //Register
 router.post("/register", async(req,res)=>{
@@ -48,7 +45,8 @@ router.post("/login", async (req,res)=>{
         // generate token - expiry time is 24 hours
         const data = {
             exp: Math.floor(Date.now() / 1000) + 60*60*24,
-            mongoID: user._id
+            mongoID: user._id,
+            isAdmin: user.role===2?true:false
         };
         const token = jwt.sign(data, process.env.JWT_SECRET);
 
@@ -59,8 +57,23 @@ router.post("/login", async (req,res)=>{
     }
 })
 
-router.post("/verify-user", fetchPerson, (req,res)=>{
-    res.json({success: true, message: "Token verified succesfully"});
+router.post("/verify-user", fetchPerson, async (req,res)=>{
+    
+    res.json({success: true, message: "Token verified succesfully", isAdmin: req.isAdmin});
+})
+
+
+//Get questions
+
+router.get("/get-questions", fetchPerson, async (req,res)=>{
+
+    try {
+        const questions = await Question.find();
+        res.status(200).json({success: true, message: "Questions fetched successfully", questions});
+    } catch (error) {
+        res.status(500).json({success: false, message: error.message});
+    }
+
 })
 
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 // import img from "../../assets/images/yi_logo.png";
 
@@ -6,6 +6,31 @@ import { Link, useNavigate } from "react-router-dom";
 import css from "../css/navbar.module.css";
 
 const Navbar = () => {
+    const [isAdmin, setIsAdmin] = useState(false)
+
+    useEffect( () => {
+        verifyUser();
+    }, [])
+
+    const verifyUser = async()=>{
+        if(localStorage.getItem('token')){
+            const response = await fetch(`http://localhost:5000/api/user/verify-user`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'auth-token': localStorage.getItem('token')
+                },
+            });
+    
+            const result = await response.json()
+            // console.log("here: ", result);
+            if(result.isAdmin===true){
+                setIsAdmin(true);
+            }
+        }
+    }
+    
+
   const navigate = useNavigate();
 
   const handleLoginClick = (e) => {
@@ -63,6 +88,19 @@ const Navbar = () => {
               More
             </Link>
           </li>
+          {
+            isAdmin && (
+                <li className="nav-item active">
+                <Link
+                className="nav-link active"
+                to="/admin/analytics"
+                style={listItemStyle}
+                >
+                Analytics
+                </Link>
+            </li>
+            )
+          }
         </ul>
 
         <ul className="navbar-nav ms-auto">

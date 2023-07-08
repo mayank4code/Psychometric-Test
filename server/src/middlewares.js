@@ -12,6 +12,7 @@ const fetchPerson = (req, res, next) => {
     try {
       const data = jwt.verify(token, process.env.JWT_SECRET);
       req.mongoID = data.mongoID;
+      req.isAdmin = data.isAdmin;
   
       next();
     } catch (err) {  

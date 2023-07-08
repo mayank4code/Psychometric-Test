@@ -10,6 +10,7 @@ connectToMongo();
 
 //routes
 app.use("/api/user", require("./src/api/user"));
+app.use("/api/admin", require("./src/api/admin"));
 
 
 

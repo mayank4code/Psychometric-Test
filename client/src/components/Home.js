@@ -29,7 +29,7 @@ const Home = () => {
   return (
     <div>
         <h1>Home</h1>
-        <div style={{textAlign:"center", margin:"2rem"}}>
+        <div style={{textAlign:"center", margin:"15rem"}}>
         <button className='btn btn-primary' onClick={handleClick}> Take Test</button>
 
         </div>

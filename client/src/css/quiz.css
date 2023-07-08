@@ -1,15 +1,12 @@
 
   body{
-    /* display: flex;
-    align-items: center;
-    justify-content: center;     */
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center;     */
     /* background-image: linear-gradient(purple,rgb(238, 48, 238)); */
     /* background-color: #3aaccb; */
-    height: 100vh;
-    width: 100vh;
-    box-sizing: border-box;
-    margin: 0;
-    padding:0;
+    min-height: 100vh;
+    width: 100%;
   }
   
   .container {
@@ -27,11 +24,11 @@
     position: relative;
   }
   .heading-txt{
-    color:white;
+    color:black;
     /* color:#276272; */
     font-size: 30px;
     font-weight: bold;
-    margin: 10px;
+    margin: 200px;
     text-align: center;  
     text-transform: uppercase;
   }

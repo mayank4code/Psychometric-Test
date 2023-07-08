@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
+import { FaPhone, FaLock } from 'react-icons/fa';
 import { Link, useNavigate } from "react-router-dom";
+import logo from "../images/logo.png";
+import css from "../css/login.css";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -30,49 +33,71 @@ const Login = () => {
 
 
   return (
-    <div>
-        
-  <section className="vh-100">
-  <div className="container-fluid h-custom my-5">
-    <div className="row d-flex justify-content-center align-items-center h-100">
-      <div className="col-md-9 col-lg-6 col-xl-5">
-        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-          className="img-fluid" alt="Sample image"/>
+    <div className="login">
+    
+    <div className="main">
+
+      <div className="webName">
+        <img className="logo" src={logo} alt="logo"></img>
+        <h5 className="website-name">Hey Entrepreneur!</h5>
       </div>
 
-      <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <form className='my-5'>
-          
-          <div className="form-outline mb-4">
-          <input type="tel" className="form-control form-control-lg"  id="floatingInput" name='mobile' placeholder="Enter your registered mobile number" value={credentials.mobile} onChange={onChange}/>
-            {/* <label className="form-label" htmlFor="floatingInput">Phone</label> */}
-          </div>
+      <div className="welcome">
+        <h4>Welcome Back</h4>
+        <p>Welcome Back, Please Enter Your Details.</p>
+      </div>
 
-          <div className="form-outline mb-3">
-            <input type="password" className="form-control form-control-lg" id="floatingPassword" name='password' placeholder="Enter Password" value={credentials.password} onChange={onChange}/>
-            {/* <label className="form-label" htmlFor="floatingPassword">Password</label> */}
-          </div>
+      <div className="formBox">
 
-          <div className="d-flex justify-content-between align-items-center">
+        <div className="fieldBox">
+          <div className="icon">
+            <FaPhone />
+          </div>
+          <div className="line">
             
-            <Link  className="text-body" to="/signup">Forgot password?</Link>
+          </div>
+           <input type="tel" 
+               className="field"  
+               name='mobile' 
+               placeholder="Enter your registered mobile number" 
+               value={credentials.mobile} 
+               onChange={onChange}/>
+               </div>
+
+        <div className="fieldBox">
+          <div className="icon">
+             <FaLock />
+          </div>
+          <div className="line">
+              
+          </div>
+            <input type="password" 
+               className="field"  
+               name='password' 
+               placeholder="Enter your Password" 
+               value={credentials.password} 
+               onChange={onChange}/>
+               </div>
+
+               <div className="forgot-password">
+            <Link  className="forgot-link" to="/signup">Forgot password?</Link>
           </div>
 
-          <div className="text-center text-lg-start mt-4 pt-2">
-            <button type="button" className="btn btn-primary btn-lg" onClick={handleSubmit}
+          <div className="login-signup">
+            <button type="button" className="button" onClick={handleSubmit}
               >Login</button>
-            <p className="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <Link to="/register"
-                className="link-danger">Register</Link></p>
           </div>
 
-        </form>
+          <div className="register">  
+            <p>Don't have an account? 
+            <Link className="register-link" to="/register" >Register</Link></p>
+          </div>
+            
       </div>
-    </div>
-  </div>
- 
-</section>
 
     </div>
+
+  </div>
   )
 }
 

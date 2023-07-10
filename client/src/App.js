@@ -11,7 +11,8 @@ import Register_M from './components/mayank/Register_M';
 import Analytics from "./components/Admin/Analytics";
 import AdminQuestions from "./components/Admin/AdminQuestions";
 import AdminUsers from "./components/Admin/AdminUsers";
-
+import Page from "./components/neha/Page";
+import Page2 from "./components/neha/Page2";
 
 function App() {
   return (

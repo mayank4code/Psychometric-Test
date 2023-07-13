@@ -8,6 +8,7 @@ import Login from './components/Login';
 // import Register from './components/Register';
 import Test from './components/Test';
 import Register_M from './components/mayank/Register_M';
+import Result_M from './components/mayank/Result_M';
 import Analytics from "./components/Admin/Analytics";
 import AdminQuestions from "./components/Admin/AdminQuestions";
 import AdminUsers from "./components/Admin/AdminUsers";
@@ -24,6 +25,7 @@ function App() {
 
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register_M />} />
+          <Route path="/result" element={<Result_M />} />
           <Route path="/test" element={<Test />} />
           <Route path="/admin/analytics" element={<Analytics />} />
           <Route path="/admin/questions" element={<AdminQuestions />} />

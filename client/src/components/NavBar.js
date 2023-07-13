@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 
 // My css
 import css from "../css/navbar.module.css";
+import logo from "../assests/logo.png";
+
 
 const Navbar = () => {
     const [isAdmin, setIsAdmin] = useState(false)
@@ -50,10 +52,12 @@ const Navbar = () => {
   const listItemStyle = { fontSize: "0.9rem", fontWeight: "400" };
 
   return (
-    <nav className={`${css.outerNav} navbar navbar-expand-lg fixed-top`}>
-      {/* <Link to="/" style={{ marginRight: "1rem" }}>
-        <img src={img} alt="yi-logo" className={css.yiImg} />
-      </Link> */}
+    <nav className={`${css.outerNav} navbar navbar-expand-lg fixed-top`}
+    style={{ position: "sticky", top: 0, zIndex: 100 }}>
+      <Link to="/" style={{ marginRight: "1rem" }}>
+        <img src={logo} alt="yi-logo" style={{"width": "3rem",
+    "margin-right": "2%"}} />
+      </Link>
       <button
         type="button"
         className="navbar-toggler"

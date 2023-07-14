@@ -8,194 +8,155 @@ body {
 
 /* PAGE 1 */
 
+.img-container{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  
+}
+
+.image-top{
+  width: 100vw;
+  height: 70vh;
+  }
+
+
 .container-page1 {
-  position: relative;
-}
-
-.container-page1::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("bg.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  opacity: 0.2;
-}
-
-.content{
-  position: relative;
-}
-
-.img-container {
-  /* height: 33vh; */
-  background-color: #C56533;
-  margin-top: 70px;
-
-}
-
-.image {
-  height: auto;
-  width: 100%;
-  padding: 20px;
-}
-
-.text-1 {
-  color: rgb(0, 0, 0);
-
-
+  margin: 30px;
 }
 
 .container-2 {
-  display: block;
-  width: 30vw;
-  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+h1 {
+  font-family: 'Sora', sans-serif;
 }
 
 .know-btn {
   display: block;
-  width : 250px;
+  width: 220px;
   margin: 0 auto;
-  background-color: #C56533;
-  color: white;
-  padding: 5px 40px;
-  border-radius: 10px;
+  background-color: #cfa2ff;
+  color: rgb(37, 23, 107);
+  padding: 15px 40px;
+  border-radius: 50px;
   font-weight: bold;
-  border-style: none;
   text-decoration: none;
-  
+  font-family: 'Sora', sans-serif;
 }
 
 /* PAGE 2 */
 
+
 .container-page2 {
-  padding-top: 100px;
+  padding: 80px 0;
 }
 
-.brown-bg {
-  background-color: #C7682F;
-  height: 40vh;
+.wrap {
   display: flex;
-  justify-content: center;
-  align-items: baseline;
+  justify-content: space-around;
+  align-items: center;
+  padding : 20px 0;
 }
 
-.text-2 {
-  padding: 20px 10px;
-  width: 100%;
-  text-align: center;
-  display: block;
-  margin: 0 auto;
+.image{
+  height: 40vw;
+  width: 40vhx;
+}
+
+.text {
+  font-family: 'Sora', sans-serif;
+  font-size: small;
 }
 
 .test-button {
-  display: block;
-  margin: 30px auto;
-  padding: 5px 30px;
-  border: 2px solid #C16534;
-  background: none;
-  font-weight: lighter;
-}
-
-.text-3 {
-  color: white;
-  font-size: 20px;
-  display: block;
-  width: 200px;
+  width: 220px;
   margin: 0 auto;
-  text-align: center;
+  background-color: #cfa2ff;
+  color: rgb(37, 23, 107);
+  padding: 12px 40px;
+  border-radius: 50px;
+  border: none;
+  font-weight: bold;
+  font-family: 'Sora', sans-serif;
 }
 
-.content {
-  margin-top: auto;
+.btn-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-hr {
-  height: 2px;
-  border-top: 1px solid #C16534;
+.footer{
+  display: flex;
+  background-color: #cfa2ff;
+  height: 30vh;
+  justify-content: space-around;
+  align-items: center;
+  /* font-family: 'Sora', sans-serif; */
+  line-height: 2.5;
 }
 
-/* .btn-container{
-  padding : 50px;
-} */
+.socials{
+  line-height: 1.5;
+}
 
-/* :root{
-  --container-width-lg: 75%;
---container-width-md: 86%;
---container-width-sm: 90%;
-} */
+.footer-img{
+  height: 100px;
+}
 
+.socials a{
+    color:rgb(24, 12, 85);;
+}
 
-@media screen and (min-width: 600px) {
-  .container-page2 {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+/* ANIMATION */
+
+@keyframes fadeFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
   }
-  
-  
-  .brown-bg {
-    width: 50vw;
-    height: 70vh;
-  }
-  
-
-  .text-2 {
-    width: 50vw;
-    padding: 0 30px;
-
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
+
+.fade-in-from-right {
+  animation: fadeFromRight 1s ease-in-out;
+}
+
+/* MEDIA QUERIES */
+
 
 @media screen and (min-width: 600px) {
   .container-page1 {
-     
-    /* opacity: 0.2; */
-  }
-
-
-  .container-page1::before {
-    content: "";
-    position: absolute;
     display: flex;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("bg.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    opacity: 0.2;
   }
 
-  .content{
-    position: relative;
+  .container-2 {
     display: flex;
-    align-items: center;
-    justify-content: space-around; 
+    margin: auto auto;
   }
-  
 
-  .image {
+  .image-top{
     width: 50vw;
     height: 100vh;
-  }
+    }
+
 
   .text-1 {
     font-size: 35px;
     font-weight: bold;
     line-height: 50px;
     letter-spacing: -1px;
-    color: white;
   }
 
-  
-
-  .img-div {
-    height: 200x;
-    background-color: #C56533;
+  p {
+    font-size: x-large;
   }
 
 }

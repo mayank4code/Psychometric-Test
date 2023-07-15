@@ -2,13 +2,12 @@ import React from 'react'
 import Image from './images/study.png'
 import { Link } from 'react-router-dom'
 import './page.css'
-import Image1 from './images/Goal-amico.png'
-import Image2 from './images/Seamstress-bro.png'
-import Image3 from './images/Seamstress-bro.png'
+import Image1 from './images/stair.png'
+import Image2 from './images/seam.png'
+import Image3 from './images/seam.png'
 import { Footer } from './Footer'
 import { motion } from 'framer-motion'
 import { InView } from 'react-intersection-observer';
-import img from './images/Worklife.gif'
 
 
 
@@ -18,7 +17,13 @@ const Page = () => {
 
     <div className='container-page1'>
       <div className='img-container'>
-      <img src={img} className='image-top'></img>
+        <motion.img className='image-top' src={Image}
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            duration: 0.8, delay: 0.5, ease: [0, 0.71, 0.2, 1.01]
+          }}
+        ></motion.img>
       </div>
 
       <div className='container-2'>
@@ -50,8 +55,9 @@ const Page = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: inView ? 1 : 0 }}
               transition={{duration: 1}}
+              style={{width:"5rem"}}
             >
-              SELF COMPLIANCE TEST
+              text here
             </motion.div>
           )}
         </InView>

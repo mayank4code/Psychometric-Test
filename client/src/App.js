@@ -2,7 +2,8 @@ import React from 'react';
 import { Toaster } from "react-hot-toast";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/NavBar';
-import Home from './components/Home';
+import Page from "../src/components/neha/Page";
+import Page2 from "../src/components/neha/Page2";
 import Login from './components/Login';
 import Register from './components/Register';
 import Test from './components/Test';
@@ -13,7 +14,7 @@ import Result_M from './components/mayank/Result_M';
 import Analytics from "./components/Admin/Analytics";
 import AdminQuestions from "./components/Admin/AdminQuestions";
 import AdminUsers from "./components/Admin/AdminUsers";
-import Register2 from "./components/testing/Register"
+import Register from "./components/Register"
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
         <Toaster toastOptions={{ duration: 4000 }} />
         <Routes>
           {/* <Route path="/" element={<Home />} />*/}
-          <Route path="/register2" element={<Register2 />} />
+          <Route path="/register" element={<Register/>} />
           <Route path="/" element={<Page />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register_M />} />

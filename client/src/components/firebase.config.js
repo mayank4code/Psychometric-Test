@@ -8,13 +8,13 @@ import { getAuth } from "firebase/auth";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAOfZSGDEoM37D2T0ROx5YGJwOifJllluY",
-    authDomain: "psychometric-test-22709.firebaseapp.com",
-    projectId: "psychometric-test-22709",
-    storageBucket: "psychometric-test-22709.appspot.com",
-    messagingSenderId: "878549867210",
-    appId: "1:878549867210:web:266422e7c995ce42d4f233",
-    measurementId: "G-6KKD7JL4ZY"
+    apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID,
   };
 
 // Initialize Firebase

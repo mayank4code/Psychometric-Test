@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import './page.css'
 import Image1 from './images/Goal-amico.png'
 import Image2 from './images/Seamstress-bro.png'
-import Image3 from './images/Webinar.png'
+import Image3 from './images/Seamstress-bro.png'
 import { Footer } from './Footer'
 import { motion } from 'framer-motion'
 import { InView } from 'react-intersection-observer';

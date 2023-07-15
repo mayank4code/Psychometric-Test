@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from './images/study.png'
 import { Link } from 'react-router-dom'
 import './page.css'
 import Image1 from './images/Goal-amico.png'
@@ -9,7 +8,6 @@ import { Footer } from './Footer'
 import { motion } from 'framer-motion'
 import { InView } from 'react-intersection-observer';
 import img from './images/Worklife.gif'
-
 
 
 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import "../css/register.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { auth } from "./firebase.config";
@@ -8,6 +9,7 @@ import { faUser, faEnvelope, faLock, faMars, faCalendarAlt, faMapMarkerAlt, faCi
 
 
 const RegistrationPage = () => {
+    const navigate = useNavigate();
     const [credentials, setCredentials] = useState({ name: "", email: "", password: "", gender: "", age: "", address: "", city: "", pincode: "", country: "", mobile: "" });
 
     const [isVerified, setIsVerified] = useState(false);
@@ -18,17 +20,31 @@ const RegistrationPage = () => {
     const [showOTP, setShowOTP] = useState(false);
     const [user, setUser] = useState(null);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Logic to submit the registration form
-        // You can access the form data from the state variables
+
         if(!user){
             toast.error("Please verify your mobile number first");
             return;
         }
         console.log('Form submitted!', credentials);
 
-        toast.success("YOOO")
+        const response = await fetch(`http://localhost:5000/api/user/register`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(credentials)
+        });
+        let response1 = await response.json();
+        console.log("Register response: ", response1);
+        if(response1.success==true){
+            toast.success("Successfully registered");
+            navigate("/login");
+        }
+        else{
+            toast.error("Cannot register, try again later");
+        }
 
     };
 
@@ -258,7 +274,7 @@ const RegistrationPage = () => {
                             id="mobile"
                             name='mobile'
                             placeholder="Mobile in format +9189.."
-                            value={!user ? credentials.mobile : user.phoneNumber}
+                            value={!user ? credentials.mobile : user.phoneNumber.substring(3)}
                             onChange={handleChange}
                             required
                         />

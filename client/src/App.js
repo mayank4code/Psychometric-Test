@@ -4,7 +4,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/NavBar';
 import Page from "../src/components/neha/Page";
 import Login from './components/Login';
-import Register from './components/Register';
+import Register from './components/mayank/Register_M';
+import Result_M from './components/mayank/Result_M';
+
 import Test from './components/Test';
 
 import Analytics from "./components/Admin/Analytics";
@@ -19,6 +21,7 @@ function App() {
         <Toaster toastOptions={{ duration: 4000 }} />
         <Routes>
           <Route path="/register" element={<Register/>} />
+          <Route path="/result" element={<Result_M />} />
           <Route path="/" element={<Page />} />
           <Route path="/login" element={<Login />} />
           <Route path="/test" element={<Test />} />

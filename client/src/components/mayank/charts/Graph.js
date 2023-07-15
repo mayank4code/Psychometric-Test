@@ -43,7 +43,7 @@ const Graph = ({ userId }) => {
 
   // console.log();
   return (
-    <ScatterChart width={400} height={500} margin={{ top: 25, right: 10, bottom: 25, left: 5 }}>
+    <ScatterChart width={400} height={570} margin={{ top: 25, right: 10, bottom: 25, left: 5 }}>
       <CartesianGrid strokeDasharray="3 3" stroke ="#ffffff"/>
       <XAxis type="number" dataKey="x" domain={[0, 10]} tickCount={6}>
         <Label value="Confirmity to Scale of Social Pressure" position="bottom" offset={-7} />

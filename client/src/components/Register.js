@@ -111,6 +111,7 @@ const RegistrationPage = () => {
             })
             .catch((err) => {
                 console.log(err);
+                toast.error("Invalid OTP")
                 setLoading(false);
             });
     }

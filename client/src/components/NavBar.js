@@ -138,7 +138,13 @@ const Navbar = () => {
               className={`${css.navBtn} text-ff1 navbar-right`}
               onClick={handleLogoutClick}
             >
+              <motion.p
+                whileHover={{ scale: 1.1 }}
+                transition={{
+                  type: 'spring', stiffness: 300
+                }}>
               Logout
+              </motion.p>
             </button>
           ) : (
             <>

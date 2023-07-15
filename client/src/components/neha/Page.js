@@ -6,17 +6,33 @@ import Image2 from './images/Seamstress-bro.png'
 import Image3 from './images/Webinar.png'
 import { Footer } from './Footer'
 import { motion } from 'framer-motion'
-import { InView } from 'react-intersection-observer';
-import img from './images/Worklife.gif'
-
+import { InView } from 'react-intersection-observer'
+import videoFile from './images/Worklife.mp4'
+import { useRef, useState } from 'react';
 
 
 const Page = () => {
+
+  const videoRef = useRef(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleLoadedData = () => {
+    setIsLoading(false);
+  };
+
   return (<>
 
     <div className='container-page1'>
       <div className='img-container'>
-        <img src={img} className='image-top'></img>
+
+        <video className='image-top' controls={false} autoPlay muted
+          onLoadedData={handleLoadedData}
+          style={{ display: isLoading ? 'none' : 'block' }}
+        >
+          <source src={videoFile} type="video/mp4" />
+          Sorry, your browser doesn't support videos.
+        </video>
+
       </div>
 
       <div className='container-2'>
@@ -78,15 +94,15 @@ const Page = () => {
         </InView>
 
 
-        <div className='text-container' style={{padding: '0 20px'}}>
+        <div className='text-container' style={{ padding: '0 20px' }}>
           <h6 className='text'> Partner with CAxpert</h6>
           <p className='para'> CAxpert (CAX) provides accounting solutions to small business owners. Let us explain analytics behind the numbers and help you scale your business. Partnered with WEP since 2019.</p>
         </div>
       </div>
 
       <div className='wrap'>
-        
-      <div className='text-container'>
+
+        <div className='text-container'>
           <h6 className='text'> Start Your Test Today</h6>
           <p className='para'> Uncover your compliance mindset and understand where you stand in different social influence scenarios. Get valuable insights for your business decisions.</p>
         </div>

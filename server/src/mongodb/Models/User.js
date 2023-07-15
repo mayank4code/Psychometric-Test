@@ -23,7 +23,7 @@ const UserSchema = new mongoose.Schema({
     gender:{
         type: Number,
         required: true,
-        enum: [1,2]  //1 is male and 2 is female
+        enum: [1,2,3]  //1 is male, 2 is female and 3 is other
     },
     age:{
         type:Number,
@@ -33,6 +33,9 @@ const UserSchema = new mongoose.Schema({
         type: String
     },
     city:{
+        type: String
+    },
+    pincode:{
         type: String
     },
     country:{

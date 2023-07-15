@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link, useNavigate } from "react-router-dom";
+import logo from "../assests/logo.png";
 
 const Home = () => {
+    const arr = [logo];
     const navigate = useNavigate();
     const handleClick = async ()=>{
         if(!localStorage.getItem('token')){
@@ -29,6 +31,8 @@ const Home = () => {
   return (
     <div>
         <h1>Home</h1>
+
+        <img src={arr[0]} alt="" />
         <div style={{textAlign:"center", margin:"15rem"}}>
         <button className='btn btn-primary' onClick={handleClick}> Take Test</button>
 

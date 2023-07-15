@@ -58,14 +58,14 @@ function PieChartCom ({userId}) {
   
   return (
     <div style={{ textAlign: 'center' }}>
-      <PieChart width={300} height={500}>
+      <PieChart width={400} height={570}>
         <Pie
           data={data}
           dataKey="value"
           isAnimationActive={true}
-          cx={150} cy={180}
+          cx={195} cy={220}
           startAngle={90} endAngle={-270}
-          outerRadius={140} innerRadius={70}
+          outerRadius={200} innerRadius={75}
           labelLine={false}
           label={({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
             const radius = innerRadius + (outerRadius - innerRadius) * 0.15;

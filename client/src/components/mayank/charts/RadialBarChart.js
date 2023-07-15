@@ -70,9 +70,9 @@ function RadialBarChartComponent({ userId }) {
 
   return (
     <RadialBarChart
-      width={655} height={500} //size of div
-      cx={158} cy={230} // coordinates of origin or centre
-      innerRadius={30} outerRadius={195}
+      width={400} height={570} //size of div
+      cx={180} cy={190} // coordinates of origin or centre
+      innerRadius={40} outerRadius={220}
       startAngle={90} endAngle={-270} data={sortedData} barSize={50}
 
     >
@@ -80,7 +80,7 @@ function RadialBarChartComponent({ userId }) {
         background
         dataKey="score"
       />
-      <Legend iconSize={10} layout="vertical" verticalAlign="middle" align="right" />
+      <Legend iconSize={12} layout="vertical" verticalAlign="bottom" align="centre" />
     </RadialBarChart>
   );
 };

@@ -23,7 +23,7 @@ function Result_M() {
         <PieChart userId={userId} />
       </div>
       <div className="col">
-        <h1>RadialBarChart Example</h1>
+        <h1>RadialBar Chart Example</h1>
         <RadialBarChartComponent userId={userId} />
       </div>
     </div>

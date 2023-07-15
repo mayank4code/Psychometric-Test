@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import {motion} from 'framer-motion'
 // import img from "../../assets/images/yi_logo.png";
 
 // My css
@@ -70,11 +71,22 @@ const Navbar = () => {
       <div className="collapse navbar-collapse" id="navbarCollapse">
         <ul className="navbar-nav mr-auto text-ff1">
           <li className="nav-item active">
+          <motion.div
+                whileHover={{ scale: 1.1 }}
+                transition={{
+                  type: 'spring', stiffness: 300
+                }}>
             <Link className="nav-link active" to="/" style={listItemStyle}>
               Home
             </Link>
+            </motion.div>
           </li>
           <li className="nav-item active">
+          <motion.div
+                whileHover={{ scale: 1.1 }}
+                transition={{
+                  type: 'spring', stiffness: 300
+                }}>
             <Link
               className="nav-link active"
               to="/about"
@@ -82,8 +94,14 @@ const Navbar = () => {
             >
               About
             </Link>
+            </motion.div>
           </li>
           <li className="nav-item active">
+          <motion.div
+                whileHover={{ scale: 1.1 }}
+                transition={{
+                  type: 'spring', stiffness: 300
+                }}>
             <Link
               className="nav-link active"
               to="/more"
@@ -91,10 +109,16 @@ const Navbar = () => {
             >
               More
             </Link>
+            </motion.div>
           </li>
           {
             isAdmin && (
                 <li className="nav-item active">
+                   <motion.div
+                whileHover={{ scale: 1.1 }}
+                transition={{
+                  type: 'spring', stiffness: 300
+                }}>
                 <Link
                 className="nav-link active"
                 to="/admin/analytics"
@@ -102,6 +126,7 @@ const Navbar = () => {
                 >
                 Analytics
                 </Link>
+                </motion.div>
             </li>
             )
           }
@@ -121,13 +146,25 @@ const Navbar = () => {
                 className={`${css.navBtn} text-ff1 navbar-right`}
                 onClick={handleLoginClick}
               >
+                <motion.p
+                whileHover={{ scale: 1.1 }}
+                transition={{
+                  type: 'spring', stiffness: 300
+                }}>
                 Login
+                </motion.p>
               </button>
               <button
                 className={`${css.navBtn} text-ff1 navbar-right`}
                 onClick={handleRegisterClick}
               >
+                 <motion.p
+                whileHover={{ scale: 1.1 }}
+                transition={{
+                  type: 'spring', stiffness: 300
+                }}>
                 Register
+                </motion.p>
               </button>
             </>
           )}

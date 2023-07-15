@@ -8,21 +8,23 @@ body {
 
 /* PAGE 1 */
 
-.img-container{
+.img-container {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  
+
 }
 
-.image-top{
+.image-top {
   width: 100vw;
   height: 70vh;
-  }
+}
 
 
 .container-page1 {
   margin: 30px;
+  font-family: 'Sora', sans-serif;
+
 }
 
 .container-2 {
@@ -31,15 +33,19 @@ body {
   align-items: center;
 }
 
-h1 {
+.text-top {
   font-family: 'Sora', sans-serif;
+  text-align: left;
+  line-height: 3rem;
+  letter-spacing: -1px;
+  color: rgb(46, 4, 101);
 }
 
 .know-btn {
   display: block;
   width: 220px;
   margin: 0 auto;
-  background-color: #cfa2ff;
+  background-color: #a4acff;
   color: rgb(37, 23, 107);
   padding: 15px 40px;
   border-radius: 50px;
@@ -59,10 +65,10 @@ h1 {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding : 20px 0;
+  padding: 20px 0;
 }
 
-.image{
+.image {
   height: 40vw;
   width: 40vhx;
 }
@@ -70,12 +76,13 @@ h1 {
 .text {
   font-family: 'Sora', sans-serif;
   font-size: small;
+  color: rgb(46, 4, 101);
 }
 
 .test-button {
   width: 220px;
   margin: 0 auto;
-  background-color: #cfa2ff;
+  background-color: #a4acff;
   color: rgb(37, 23, 107);
   padding: 12px 40px;
   border-radius: 50px;
@@ -90,26 +97,29 @@ h1 {
   align-items: center;
 }
 
-.footer{
+.footer {
   display: flex;
-  background-color: #cfa2ff;
+  background-color: #a4acff;
   height: 30vh;
   justify-content: space-around;
   align-items: center;
   /* font-family: 'Sora', sans-serif; */
   line-height: 2.5;
+  color: rgb(46, 4, 101);
+
 }
 
-.socials{
+.socials {
   line-height: 1.5;
 }
 
-.footer-img{
+.footer-img {
   height: 100px;
 }
 
-.socials a{
-    color:rgb(24, 12, 85);;
+.socials a {
+  color: rgb(24, 12, 85);
+  ;
 }
 
 /* ANIMATION */
@@ -119,6 +129,7 @@ h1 {
     opacity: 0;
     transform: translateX(100%);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -128,6 +139,7 @@ h1 {
 .fade-in-from-right {
   animation: fadeFromRight 1s ease-in-out;
 }
+
 
 /* MEDIA QUERIES */
 
@@ -142,21 +154,12 @@ h1 {
     margin: auto auto;
   }
 
-  .image-top{
-    width: 50vw;
+  .image-top {
+    width: 48vw;
     height: 100vh;
-    }
-
-
-  .text-1 {
-    font-size: 35px;
-    font-weight: bold;
-    line-height: 50px;
-    letter-spacing: -1px;
   }
 
-  p {
-    font-size: x-large;
+  .text {
+    font-size: medium;
   }
-
 }

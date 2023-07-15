@@ -4,7 +4,7 @@ import { BsTwitter } from 'react-icons/bs'
 import { FaFacebook } from 'react-icons/fa'
 import { BsLinkedin } from 'react-icons/bs'
 import { BsYoutube } from 'react-icons/bs'
-import img from './logo512.png'
+import img from './images/logo512.png'
 
 export const Footer = () => {
     return (

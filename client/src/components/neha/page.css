@@ -16,7 +16,6 @@ body {
 }
 
 .image-top {
-  width: 100vw;
   height: 70vh;
 }
 
@@ -70,10 +69,12 @@ body {
 
 .image {
   height: 40vw;
-  width: 40vhx;
 }
 
 .text {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   font-family: 'Sora', sans-serif;
   font-size: small;
   color: rgb(46, 4, 101);

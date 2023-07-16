@@ -8,10 +8,23 @@ import { Footer } from './Footer'
 import { motion } from 'framer-motion'
 import { InView } from 'react-intersection-observer'
 import videoFile from './images/Worklife.mp4'
-import {useState } from 'react';
+import { useState } from 'react';
+import { useInView } from 'framer-motion' // refer slide.jsx
+import { staggerContainer } from './framer'
+import { TypingText } from './text'
+import { useRef } from 'react'
+import { headerVariants, textVariant } from './framer'
+
+
 
 
 const Page = () => {
+
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  const buttonref = useRef(null);
+  const buttonisInView = useInView(buttonref, { once: false });
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -36,14 +49,41 @@ const Page = () => {
 
       <div className='container-2'>
         <div className='fade-in-from-right'>
-          <h1 className="text-top">TAKE A<br />
-            STEP AHEAD<br />
-            IN YOUR<br />
-            BUSINESS</h1><br />
+          <motion.div variants={textVariant}
+            initial="hidden"
+            whileInView="show">
+
+            <motion.div className="text-top"
+              whileHover={{ scale: 1.1, originX: 0 }} transition={{ type: 'spring', stiffness: 300 }}
+            >
+              TAKE A </motion.div>
+            <motion.div className='text-top text-top-deco'
+              whileHover={{ scale: 1.1, originX: 0 }} transition={{ type: 'spring', stiffness: 300 }}
+            >
+              STEP AHEAD</motion.div>
+            <motion.div className='text-top'
+              whileHover={{ scale: 1.1, originX: 0 }} transition={{ type: 'spring', stiffness: 300 }}
+            >
+              IN YOUR</motion.div>
+            <motion.div className='text-top text-top-deco'
+              whileHover={{ scale: 1.1, originX: 0 }} transition={{ type: 'spring', stiffness: 300 }}
+            >
+              BUSINESS</motion.div>
+          </motion.div>
 
           <motion.a href='#start-test' className='btn'
-            whileHover={{ scale: 1.1 }} transition={{ type: 'spring', stiffness: 300 }}>
-            KNOW MORE <span className='arrow'>&rarr;</span></motion.a>
+            whileHover={{ scale: 1.1 }} transition={{ type: 'spring', stiffness: 300 }}
+            whileTap={{ scale: 0.9, backgroundColor: '#a4acff', color: 'rgb(37, 23, 107)' }}
+
+          >
+            KNOW MORE</motion.a>
+
+          <Link to='' style={{ textDecoration: 'nwrap' }}>
+            <motion.a className='btn'
+              whileHover={{ scale: 1.1 }} transition={{ type: 'spring', stiffness: 300 }}
+              whileTap={{ scale: 0.9, backgroundColor: '#a4acff', color: 'rgb(37, 23, 107)' }}
+
+            >START TEST<span className='arrow'>&rarr;</span></motion.a></Link>
 
         </div>
       </div>
@@ -53,11 +93,21 @@ const Page = () => {
     {/* PAGE 2 */}
 
 
-    <section id='start-test' className='container-page2'>
+    <section id='start-test' className='container-page2' ref={ref}>
 
       <div className='wrap'>
         <div className='text-container'>
-          <h6 className='text'>SELF COMPLIANCE TEST</h6>
+          <motion.h2
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: .5 }}
+            className='text'
+          ><TypingText
+              title="SELF COMPLIANCE TEST"
+              textStyles="text-center" />
+          </motion.h2>
+
           <p className='para'> Assess your compliance mindset with our self-compliance test. Discover invisible mental roadblocks and gain insights into informed decision-making.</p>
         </div>
 
@@ -94,7 +144,18 @@ const Page = () => {
 
 
         <div className='text-container' style={{ padding: '0 20px' }}>
-          <h6 className='text'> Partner with CAxpert</h6>
+
+          <motion.h2
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: .5 }}
+            className='text'
+          ><TypingText
+              title="Partner with CAxpert"
+              textStyles="text-center" />
+          </motion.h2>
+
           <p className='para'> CAxpert (CAX) provides accounting solutions to small business owners. Let us explain analytics behind the numbers and help you scale your business. Partnered with WEP since 2019.</p>
         </div>
       </div>
@@ -102,7 +163,17 @@ const Page = () => {
       <div className='wrap'>
 
         <div className='text-container'>
-          <h6 className='text'> Start Your Test Today</h6>
+          <motion.h2
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: .5 }}
+            className='text'
+          ><TypingText
+              title="Start Your Test Today"
+              textStyles="text-center" />
+          </motion.h2>
+
           <p className='para'> Uncover your compliance mindset and understand where you stand in different social influence scenarios. Get valuable insights for your business decisions.</p>
         </div>
 
@@ -121,12 +192,20 @@ const Page = () => {
       </div>
 
 
-      <div className='btn-wrap'>
+      <div className='btn-wrap' ref={buttonref} >
+
         <Link style={{ textDecoration: 'nwrap' }}>
-          <motion.button className='btn'
-            whileHover={{ scale: 1.1 }} transition={{ type: 'spring', stiffness: 300 }}
+          <motion.button className='btn btn-bottom'
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9, backgroundColor: '#a4acff'}}
+            style={{
+              transform: buttonisInView ? "none" : "translateX(-200px)",
+              opacity: buttonisInView ? 1 : 0,
+              transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.1s"
+            }}
           >START YOUR TEST<span className='arrow'>&rarr;</span></motion.button></Link>
       </div>
+
     </section>
 
     <Footer />

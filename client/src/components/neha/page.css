@@ -9,7 +9,7 @@ body {
 /* PAGE 1 */
 
 .container-page1 {
-  margin: 0 10px;
+  margin: 0 30px;
   font-family: 'Sora', sans-serif;
 }
 
@@ -31,6 +31,7 @@ body {
   line-height: 3rem;
   letter-spacing: -1px;
   color: rgb(46, 4, 101);
+  font-size: xx-large;
 }
 
 

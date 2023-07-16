@@ -8,12 +8,11 @@ import { Footer } from './Footer'
 import { motion } from 'framer-motion'
 import { InView } from 'react-intersection-observer'
 import videoFile from './images/Worklife.mp4'
-import { useRef, useState } from 'react';
+import {useState } from 'react';
 
 
 const Page = () => {
 
-  const videoRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true);
 
   const handleLoadedData = () => {

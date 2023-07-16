@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './page.css'
-import Image1 from './images/stair.png'
-import Image2 from './images/seam.png'
-import Image3 from './images/Worklife.gif'
+import Image1 from './images/Goal-amico.png'
+import Image2 from './images/Seamstress-bro.png'
+import Image3 from './images/Webinar.png'
 import { Footer } from './Footer'
 import { motion } from 'framer-motion'
 import { InView } from 'react-intersection-observer'
@@ -85,7 +85,8 @@ const Page = () => {
                                     whileTap={{ scale: 0.9, backgroundColor: '#a4acff', color: 'rgb(37, 23, 107)' }}
 
                                 >START TEST<span className='arrow'>&rarr;</span></motion.a></Link>
-                        </div>
+                                    </div>
+
                     </div>
                 </div>
 

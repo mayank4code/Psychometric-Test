@@ -8,79 +8,34 @@ body {
 
 /* PAGE 1 */
 
-.img-container {
+.container-page1 {
+  margin: 0 30px;
+  font-family: 'Sora', sans-serif;
+}
+
+.img-container,
+.container-2,
+.wrap, .btn-wrap {
   display: flex;
   justify-content: space-around;
   align-items: center;
-
 }
 
 .image-top {
+  width: 80vw;
   height: 70vh;
 }
 
-
-.container-page1 {
-  margin: 30px;
-  font-family: 'Sora', sans-serif;
-
-}
-
-.container-2 {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
 .text-top {
-  font-family: 'Sora', sans-serif;
   text-align: left;
   line-height: 3rem;
   letter-spacing: -1px;
   color: rgb(46, 4, 101);
+  font-size: xx-large;
 }
 
-.know-btn {
-  display: block;
-  width: 220px;
-  margin: 0 auto;
-  background-color: #a4acff;
-  color: rgb(37, 23, 107);
-  padding: 15px 40px;
-  border-radius: 50px;
-  font-weight: bold;
-  text-decoration: none;
-  font-family: 'Sora', sans-serif;
-}
 
-/* PAGE 2 */
-
-
-.container-page2 {
-  padding: 80px 0;
-}
-
-.wrap {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 20px 0;
-}
-
-.image {
-  height: 40vw;
-}
-
-.text {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  font-family: 'Sora', sans-serif;
-  font-size: small;
-  color: rgb(46, 4, 101);
-}
-
-.test-button {
+.btn {
   width: 220px;
   margin: 0 auto;
   background-color: #a4acff;
@@ -92,11 +47,37 @@ body {
   font-family: 'Sora', sans-serif;
 }
 
-.btn-wrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+
+/* PAGE 2 */
+
+
+.container-page2 {
+  padding: 80px 20px;
 }
+
+.wrap {
+  padding: 20px 0;
+}
+
+.image {
+  height: 40vw;
+}
+
+.text {
+  display: flex;
+  justify-content: left;
+  font-family: 'Sora', sans-serif;
+  font-size: small;
+  color: rgb(46, 4, 101);
+}
+
+.para {
+  width: 40vw;
+  font-size: small;
+}
+
+/* FOOTER  */
 
 .footer {
   display: flex;
@@ -104,10 +85,8 @@ body {
   height: 30vh;
   justify-content: space-around;
   align-items: center;
-  /* font-family: 'Sora', sans-serif; */
   line-height: 2.5;
   color: rgb(46, 4, 101);
-
 }
 
 .socials {
@@ -120,8 +99,8 @@ body {
 
 .socials a {
   color: rgb(24, 12, 85);
-  ;
 }
+
 
 /* ANIMATION */
 
@@ -148,19 +127,20 @@ body {
 @media screen and (min-width: 600px) {
   .container-page1 {
     display: flex;
-  }
-
-  .container-2 {
-    display: flex;
-    margin: auto auto;
+    justify-content: space-around;
+    align-items: center;
   }
 
   .image-top {
-    width: 48vw;
     height: 100vh;
+    width: 50vw;
   }
 
   .text {
-    font-size: medium;
+    font-size: large;
+  }
+
+  .para {
+    font-size: large;
   }
 }

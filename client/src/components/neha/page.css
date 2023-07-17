@@ -113,7 +113,7 @@ margin-top: 20px;
 }
 
 .socials {
-  line-height: 1.5;
+  line-height: 1.7;
 }
 
 .footer-img {
@@ -121,8 +121,13 @@ margin-top: 20px;
   display: none;
 }
 
-.socials a {
+.footer-deco a{
+  text-decoration: none;
   color: rgb(24, 12, 85);
+}
+
+.footer-deco a:hover{
+  color: #ff2764;
 }
 
 

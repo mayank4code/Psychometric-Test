@@ -16,26 +16,26 @@ export const Footer = () => {
             </div>
             <div className='footer-deco'>
                 <Link to='/login'>Community</Link> <br />
-                <a href='https://wep.gov.in/about'>About WEP</a><br />
-                <a href='https://wep.gov.in/partners'>Partners </a><br />
+                <a target='_blank' href='https://wep.gov.in/about'>About WEP</a><br />
+                <a target='_blank' href='https://wep.gov.in/partners'>Partners </a><br />
             </div>
 
             <div className='footer-deco'>
-            <a href='https://wep.gov.in/newsletter'>Newsletter</a> <br />
-            <a href='https://wep.gov.in/events'>Events</a> <br />
-            <a href='https://wep.gov.in/disclaimer'>Disclaimer</a> <br />
+            <a target='_blank' href='https://wep.gov.in/newsletter'>Newsletter</a> <br />
+            <a target='_blank' href='https://wep.gov.in/events'>Events</a> <br />
+            <a target='_blank' href='https://wep.gov.in/disclaimer'>Disclaimer</a> <br />
             </div>
 
             <div className='footer-deco'>
-            <a href='https://wep.gov.in/faq'>FAQ's</a> <br />
-            <a href='https://wep.gov.in/contactus'>Feedback</a> <br />
+            <a target='_blank' href='https://wep.gov.in/faq'>FAQ's</a> <br />
+            <a target='_blank' href='https://wep.gov.in/contactus'>Feedback</a> <br />
             </div>
 
             <div className='footer-deco socials'>
-                <a href='https://twitter.com/NITIAayog'><BsTwitter /></a> <br />
-                <a href='https://www.facebook.com/WomenEntrepreneurshipPlatform/'><FaFacebook /></a><br />
-                <a href='https://www.linkedin.com/company/women-entrepreneurship-platform-niti-aayog/' ><BsLinkedin /></a><br />
-                <a href='https://www.youtube.com/watch?v=UFJeTwHh01w' ><BsYoutube /></a><br />
+                <a target='_blank' href='https://twitter.com/NITIAayog'><BsTwitter /></a> <br />
+                <a target='_blank' href='https://www.facebook.com/WomenEntrepreneurshipPlatform/'><FaFacebook /></a><br />
+                <a target='_blank' href='https://www.linkedin.com/company/women-entrepreneurship-platform-niti-aayog/' ><BsLinkedin /></a><br />
+                <a target='_blank' href='https://www.youtube.com/watch?v=UFJeTwHh01w' ><BsYoutube /></a><br />
             </div>
 
         </div>

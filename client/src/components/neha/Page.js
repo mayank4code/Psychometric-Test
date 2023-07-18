@@ -70,7 +70,7 @@ const Page = () => {
             >
               BUSINESS</motion.div>
           </motion.div>
-
+<div className='hero-btn-wrap'>
           <motion.a href='#start-test' className='btn'
             whileHover={{ scale: 1.1 }} transition={{ type: 'spring', stiffness: 300 }}
             whileTap={{ scale: 0.9, backgroundColor: '#a4acff', color: 'rgb(37, 23, 107)' }}
@@ -84,7 +84,7 @@ const Page = () => {
               whileTap={{ scale: 0.9, backgroundColor: '#a4acff', color: 'rgb(37, 23, 107)' }}
 
             >START TEST<span className='arrow'>&rarr;</span></motion.a></Link>
-
+ </div>
         </div>
       </div>
 

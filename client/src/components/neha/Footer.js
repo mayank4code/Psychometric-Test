@@ -5,6 +5,7 @@ import { FaFacebook } from 'react-icons/fa'
 import { BsLinkedin } from 'react-icons/bs'
 import { BsYoutube } from 'react-icons/bs'
 import img from './images/logo512.png'
+import {Link} from 'react-router-dom'
 
 export const Footer = () => {
     return (
@@ -13,24 +14,24 @@ export const Footer = () => {
             <div>
                 <img className='footer-img' src={img} />
             </div>
-            <div>
-                Community <br />
-                About WEP<br />
-                Partners <br />
+            <div className='footer-deco'>
+                <Link to='/login'>Community</Link> <br />
+                <a href='https://wep.gov.in/about'>About WEP</a><br />
+                <a href='https://wep.gov.in/partners'>Partners </a><br />
             </div>
 
-            <div>
-                Newletter <br />
-                Events<br />
-                Disclaimer<br />
+            <div className='footer-deco'>
+            <a href='https://wep.gov.in/newsletter'>Newsletter</a> <br />
+            <a href='https://wep.gov.in/events'>Events</a> <br />
+            <a href='https://wep.gov.in/disclaimer'>Disclaimer</a> <br />
             </div>
 
-            <div>
-                FAQs<br />
-                Feedback<br />
+            <div className='footer-deco'>
+            <a href='https://wep.gov.in/faq'>FAQ's</a> <br />
+            <a href='https://wep.gov.in/contactus'>Feedback</a> <br />
             </div>
 
-            <div className='socials'>
+            <div className='footer-deco socials'>
                 <a href='https://twitter.com/NITIAayog'><BsTwitter /></a> <br />
                 <a href='https://www.facebook.com/WomenEntrepreneurshipPlatform/'><FaFacebook /></a><br />
                 <a href='https://www.linkedin.com/company/women-entrepreneurship-platform-niti-aayog/' ><BsLinkedin /></a><br />

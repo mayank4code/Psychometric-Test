@@ -17,7 +17,7 @@ const data = [
   { x: 1, y: 1,name:'Individualist Rebellion',fill: '#f5504a'},
   { x: 3, y: 7 , name:'Information Driven' ,fill: '#c1a14d'},
   { x: 7, y: 3 , name:'Friendly Follower',fill: '#c1a14d'},
-  { x: 9, y: 9 , name:'IdealNormative',fill: '#92af65'},
+  { x: 9, y: 9 , name:'Ideal Normative',fill: '#92af65'},
 ];
 
 const Graph = ({ userId }) => {

@@ -24,28 +24,28 @@ function RadialBarChartComponent({ userId }) {
   const rawData = [
     {
       name: 'Affected by group size or unanimity?',
-      score: ((8 - (user.option[1-1]-1)*2) + (8 - (user.option[2-1]-1)*2)) , fill: '#ffffff'
+      score: ((8 - (user.option[1-1]-1)*2) + (8 - (user.option[2-1]-1)*2)) , 
     },
     {
       name: 'Affected by cohesion or status of others?',
-      score: ((8 - (user.option[3-1]-1)*2) + (8 - (user.option[4-1]-1)*2)), fill: '#ffffff'
+      score: ((8 - (user.option[3-1]-1)*2) + (8 - (user.option[4-1]-1)*2)), 
     },
     {
       name: 'Affected by Reciprocity?',
-      score: ((8 - (user.option[15-1-1])*2) + (8 - (user.option[16-1]-1)*2)), fill: '#ffffff'
+      score: ((8 - (user.option[15-1]-1)*2) + (8 - (user.option[16-1]-1)*2)), 
     },
     {
       name: 'Affected by Commitment and Consistency?',
-      score: ((8 - (user.option[17-1]-1)*2) + (8 - (user.option[18-1]-1)*2)), fill: '#ffffff'
+      score: ((8 - (user.option[17-1]-1)*2) + (8 - (user.option[18-1]-1)*2)), 
     },
     {
       name: 'Affected by Commitment and Consistency?',
-      score: ((8 - (user.option[21-1]-1)*2) + (8 - (user.option[22-1]-1)*2)), fill: '#ffffff'
+      score: ((8 - (user.option[21-1]-1)*2) + (8 - (user.option[22-1]-1)*2)), 
     },
     { name: 'Affected by Authority/ commands ?', 
-      score: ((8 - (user.option[25-1]-1)*2) + (8 - (user.option[26-1]-1)*2)), fill: '#ffffff' },
+      score: ((8 - (user.option[25-1]-1)*2) + (8 - (user.option[26-1]-1)*2)),  },
 
-    { name: 'Max', score: 20, fill: '#ffffff' }, // Maximum Possible  value
+    { name: 'Max', score: 20 }, // Maximum Possible  value
   ];
 
 
@@ -80,7 +80,7 @@ function RadialBarChartComponent({ userId }) {
         background
         dataKey="score"
       />
-      <Legend iconSize={12} layout="vertical" verticalAlign="bottom" align="centre" />
+      <Legend iconSize={15} layout="vertical" verticalAlign="bottom" align="centre" />
     </RadialBarChart>
   );
 };

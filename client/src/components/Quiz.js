@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import QuizResult from './QuizResult';
 import "../css/quiz.css";
 import imgbg from "../images/bg.png";
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+
 function Quiz() {
     const [questions, setQuestions] = useState([]);
 
@@ -68,10 +70,12 @@ function Quiz() {
     , require("../images/20.png"), require("../images/21.png"), require("../images/22.png"), require("../images/23.png")
     , require("../images/24.png"), require("../images/25.png"), require("../images/26.png")];
 
-    
+    const totalQuestions = questions.length;
+    const progressPercentage = ((currentQuestionIndex + 1) / totalQuestions) * 100;
 
 
   return (
+      
     <div className='bodyy'>
     {questions.length===0?"":<>
 
@@ -111,7 +115,22 @@ function Quiz() {
     <div className="right">
         <img src={imageArray[currentQuestionIndex]} alt="img" /> 
 
+        <div className="status-info">
+            <h5>Quetion <br></br> Answered</h5>
+       </div>
         
+        <CircularProgressbar
+              className="status"
+              value={progressPercentage}
+              text={`${currentQuestionIndex + 1} / ${totalQuestions}`}
+              styles={buildStyles({
+                pathColor: `rgba(62, 152, 199, ${progressPercentage / 100})`,
+                textColor: 'black',
+                trailColor: 'pink',
+              })}
+            />
+
+
     </div> 
         </>
     }

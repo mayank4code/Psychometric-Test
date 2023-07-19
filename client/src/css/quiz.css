@@ -118,12 +118,38 @@ display: flex;
   width: 45%;
   /* background-color: green; */
   margin-left: 50px;
+  display: flex;
 }
 .right img{
   margin-left: 60px;
   margin-top: 30px;
   height: 300px;
   width: 450px;
+}
+.status-info{
+  background-color: white;
+  box-shadow: 3.5px 3.5px 4px 2px rgb(78, 69, 78);
+  height: 100px;
+  width: 20%;
+  margin-top: 400px;
+  margin-left:150px;
+  position: absolute;
+  z-index: 0;
+  padding-top: 25px;
+  text-align: center;
+  padding-left: 80px;
+}
+.status{
+  height: 80px;
+  z-index: 999;
+  margin-left: 170px;
+  margin-top: 410px;
+  font-size: 20px;
+  font-weight: 900;
+  fill: #f88;
+  position: absolute;
+  dominant-baseline:middle ;
+  text-anchor:middle;  
 }
 
 .show-score{

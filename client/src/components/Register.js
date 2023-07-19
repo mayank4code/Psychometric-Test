@@ -8,6 +8,8 @@ import { toast, Toaster } from "react-hot-toast";
 import { faUser, faEnvelope, faLock, faMars, faCalendarAlt, faMapMarkerAlt, faCity, faMapPin, faPhone, faCheckCircle  } from '@fortawesome/free-solid-svg-icons';
 
 
+//! Sometimes k is added to the mobile number and it is added to the database with k. 
+
 const RegistrationPage = () => {
     const navigate = useNavigate();
     const [credentials, setCredentials] = useState({ name: "", email: "", password: "", gender: "", age: "", address: "", city: "", pincode: "", country: "", mobile: "" });
@@ -28,6 +30,7 @@ const RegistrationPage = () => {
             return;
         }
         console.log('Form submitted!', credentials);
+        credentials.mobile = credentials.mobile.substring(0, 10);
 
         const response = await fetch(`http://localhost:5000/api/user/register`, {
             method: 'POST',

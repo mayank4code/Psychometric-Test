@@ -79,7 +79,7 @@ const Page = () => {
                             >
                                 KNOW MORE</motion.a>
 
-                            <Link to='' style={{ textDecoration: 'nwrap' }}>
+                            <Link to='/test/instructions' style={{ textDecoration: 'nwrap' }}>
                                 <motion.a className='btn'
                                     whileHover={{ scale: 1.1 }} transition={{ type: 'spring', stiffness: 300 }}
                                     whileTap={{ scale: 0.9, backgroundColor: '#a4acff', color: 'rgb(37, 23, 107)' }}

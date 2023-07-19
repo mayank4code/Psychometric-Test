@@ -11,26 +11,22 @@ import {
   ReferenceLine,
   // Rectangle
 } from 'recharts';
-import UserData from "../../../Data/UserData";
 
 const data = [
   { x: 1, y: 1,name:'Individualist Rebellion',fill: '#f5504a'},
   { x: 3, y: 7 , name:'Information Driven' ,fill: '#c1a14d'},
   { x: 7, y: 3 , name:'Friendly Follower',fill: '#c1a14d'},
-  { x: 9, y: 9 , name:'Ideal Normative',fill: '#92af65'},
+  { x: 7.7, y: 9 , name:'Ideal Normative',fill: '#92af65'},
 ];
 
-const Graph = ({ userId }) => {
-  const user = UserData.find((student) => student.id === userId);
-
-  if (!user) {
-    return <div><h5>User not found.  {userId} </h5></div>;
-  }
+const Graph = ({responses}) => {
+  
 
   const optionCount = [0, 0, 0, 0]; // Array to store the count of each option
+  console.log(responses);
 
   // Count the number of each option selected
-  user.option.forEach((option) => {
+  responses.forEach((option) => {
       optionCount[option - 1]++;
     });
 

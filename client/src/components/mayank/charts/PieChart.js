@@ -5,7 +5,6 @@ import {
   Cell,Label,
   Legend
   } from 'recharts';
-import UserData from "../../../Data/UserData";
 
 
 // const data = [
@@ -14,13 +13,7 @@ import UserData from "../../../Data/UserData";
 //   { name: 'Obedience', value: 26 , fill:'#A24F10'}
 // ];
 
-function PieChartCom ({userId}) {
-
-  const user = UserData.find((student) => student.id === userId);
-  // console.log(user);
-  if (!user) {
-    return <div><h5>User not found.  {userId} </h5></div>;
-  }
+function PieChartCom ({responses}) {
 
   // Defining Type values 
   var confirimity = 0 ;
@@ -31,7 +24,7 @@ function PieChartCom ({userId}) {
   const factor = 0.5 ;
 
   // Count the number of each option selected by the user with weight
-  user.option.forEach((option,index)=>{
+  responses.forEach((option,index)=>{
     if (index>=0 && index<=12) {
       confirimity+=  1 *(2- ((option-1)*factor))   ;
     }

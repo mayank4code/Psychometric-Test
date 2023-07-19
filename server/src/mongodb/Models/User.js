@@ -45,6 +45,15 @@ const UserSchema = new mongoose.Schema({
         type: Number,
         default: 1, // 1 is user and 2 is admin
         enum: [1, 2]
+    },
+    testResponse:[
+        {
+            type:Number,
+            // 1 means option A. 2 means option B.....
+        }
+    ],
+    lastTestDate:{
+        type: Date
     }
 
 },

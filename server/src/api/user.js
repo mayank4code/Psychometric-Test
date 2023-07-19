@@ -62,6 +62,17 @@ router.post("/verify-user", fetchPerson, async (req,res)=>{
     res.json({success: true, message: "Token verified succesfully", isAdmin: req.isAdmin});
 })
 
+router.post("/get-user", fetchPerson, async (req,res)=>{
+    try {
+        const userDoc = await User.findById(req.mongoID);
+        res.json({success: true, message: "User fetched successfully", userDoc});
+        
+    } catch (err) {
+        res.status(500).json({success: false, message: err});
+    }
+    
+})
+
 
 //Get questions
 
@@ -74,6 +85,18 @@ router.get("/get-questions", fetchPerson, async (req,res)=>{
         res.status(500).json({success: false, message: error.message});
     }
 
+})
+
+//Update test responses in user schema
+
+router.put("/update-response", fetchPerson, async(req,res)=>{
+    const userId = req.mongoID;
+    try {
+        const updatedUser = await User.findByIdAndUpdate(userId, {testResponse: req.body.responses, lastTestDate: Date.now()}, {new:true});
+        res.json({success:true, updatedUser});
+    } catch (error) {
+        res.status(500).json({success: false, message: error.message});
+    }
 })
 
 

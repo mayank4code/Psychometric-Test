@@ -96,6 +96,7 @@ margin-top: 20px;
 
 /* FOOTER  */
 
+
 .footer {
   display: flex;
   background-color: #a4acff;
@@ -120,6 +121,7 @@ margin-top: 20px;
   height: 100px;
   display: none;
 }
+
 
 .footer-deco a{
   text-decoration: none;

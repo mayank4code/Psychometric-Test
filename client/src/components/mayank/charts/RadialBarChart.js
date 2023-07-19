@@ -1,6 +1,5 @@
 import React from 'react';
 import { RadialBarChart, RadialBar, Legend } from 'recharts';
-import UserData from "../../../Data/UserData";
 
 
 // const data = [
@@ -13,37 +12,33 @@ import UserData from "../../../Data/UserData";
 //   { name: 'F', uv: 74, pv: 4800, fill: '#df6000' },
 // ];
 
-function RadialBarChartComponent({ userId }) {
+function RadialBarChartComponent({ responses }) {
 
-  const user = UserData.find((student) => student.id === userId);
-  // console.log(user);
-  if (!user) {
-    return <div><h5>User not found.  {userId} </h5></div>;
-  }
+
 
   const rawData = [
     {
       name: 'Affected by group size or unanimity?',
-      score: ((8 - (user.option[1-1]-1)*2) + (8 - (user.option[2-1]-1)*2)) , 
+      score: ((8 - (responses[1-1]-1)*2) + (8 - (responses[2-1]-1)*2)) , 
     },
     {
       name: 'Affected by cohesion or status of others?',
-      score: ((8 - (user.option[3-1]-1)*2) + (8 - (user.option[4-1]-1)*2)), 
+      score: ((8 - (responses[3-1]-1)*2) + (8 - (responses[4-1]-1)*2)), 
     },
     {
       name: 'Affected by Reciprocity?',
-      score: ((8 - (user.option[15-1]-1)*2) + (8 - (user.option[16-1]-1)*2)), 
+      score: ((8 - (responses[15-1]-1)*2) + (8 - (responses[16-1]-1)*2)), 
     },
     {
       name: 'Affected by Commitment and Consistency?',
-      score: ((8 - (user.option[17-1]-1)*2) + (8 - (user.option[18-1]-1)*2)), 
+      score: ((8 - (responses[17-1]-1)*2) + (8 - (responses[18-1]-1)*2)), 
     },
     {
       name: 'Affected by Commitment and Consistency?',
-      score: ((8 - (user.option[21-1]-1)*2) + (8 - (user.option[22-1]-1)*2)), 
+      score: ((8 - (responses[21-1]-1)*2) + (8 - (responses[22-1]-1)*2)), 
     },
     { name: 'Affected by Authority/ commands ?', 
-      score: ((8 - (user.option[25-1]-1)*2) + (8 - (user.option[26-1]-1)*2)),  },
+      score: ((8 - (responses[25-1]-1)*2) + (8 - (responses[26-1]-1)*2)),  },
 
     { name: 'Max', score: 20 }, // Maximum Possible  value
   ];
@@ -58,7 +53,7 @@ function RadialBarChartComponent({ userId }) {
     { fill: '#547835' },
     { fill: '#d78c00' },
     { fill: '#df6000' },
-    { fill: '#ffffff' },
+    { fill: '#f7f7f7' },
   ];
 
   sortedData.forEach((data, index) => {

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { FaPhone, FaLock } from 'react-icons/fa';
 import { Link, useNavigate } from "react-router-dom";
+import { toast, Toaster } from "react-hot-toast";
 import logo from "../images/logo.png";
 import css from "../css/login.css";
 
@@ -23,6 +24,10 @@ const Login = () => {
         if("token" in result){
             localStorage.setItem('token', result["token"]);
             navigate("/");
+            toast.success("Logged in successfully")
+        }
+        else{
+            toast.error("Invalid credentials")
         }
     }
 

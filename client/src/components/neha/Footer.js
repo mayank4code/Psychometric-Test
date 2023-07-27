@@ -15,7 +15,7 @@ export const Footer = () => {
                 <img className='footer-img' src={img} />
             </div>
             <div className='footer-deco'>
-                <Link to='/login'>Community</Link> <br />
+                <Link >Community</Link> <br />
                 <a target='_blank' href='https://wep.gov.in/about'>About WEP</a><br />
                 <a target='_blank' href='https://wep.gov.in/partners'>Partners </a><br />
             </div>

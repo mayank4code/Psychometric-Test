@@ -1,108 +1,173 @@
 import React, { useState } from 'react'
-import { FaPhone, FaLock } from 'react-icons/fa';
-import { Link, useNavigate } from "react-router-dom";
+
+import { useNavigate } from "react-router-dom";
 import { toast, Toaster } from "react-hot-toast";
-import logo from "../images/logo.png";
-import css from "../css/login.css";
+import "../css/login.css";
+
+// Firebase for OTP
+import { auth } from "./firebase.config";
+import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
+
 
 const Login = () => {
+    //below 2 are inputs
+    
+    var testMobileNumber = "+16505554567";
+    var testVerificationCode = "123456";
     const navigate = useNavigate();
+    const [mobileNumber, setMobileNumber] = useState('');
+    const [otp, setOTP] = useState('');
 
-    const [credentials, setCredentials] = useState({mobile: "", password: ""});
+    const [otpSent, setOTPSent] = useState(false);
+    const [loading, setLoading] = useState(false);
 
-    const handleSubmit = async (e)=>{
-        e.preventDefault();
+    //*This function is called once the OTP is verified, to generate the token
+    const loginUser = async ()=>{
         const response = await fetch(`http://localhost:5000/api/user/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(credentials)
+            body: JSON.stringify({mobile: mobileNumber})
         });
-        const result = await response.json()
-        console.log(result);
-        if("token" in result){
-            localStorage.setItem('token', result["token"]);
+        let response1 = await response.json();
+        if(response1.success){
+            localStorage.setItem('token', response1.token);
+            toast.success("Logged in successfully");
             navigate("/");
-            toast.success("Logged in successfully")
-        }
-        else{
-            toast.error("Invalid credentials")
         }
     }
 
-    const onChange = (e)=>{
-        setCredentials({...credentials, [e.target.name]: e.target.value})
+    //These 3 functions are for OTP sending and verification
+    function onCaptchVerify() {
+        try{
+            if (!window.recaptchaVerifier) {
+                window.recaptchaVerifier = new RecaptchaVerifier(
+                    "recaptcha-container",
+                    {
+                        size: "invisible",
+                        callback: (response) => {
+                            onSignup();
+                        },
+                        "expired-callback": () => {  },
+                    },
+                    auth
+                );
+            }
+        }
+        catch(err){
+            console.log("Captcha error: ", err);
+        }
     }
 
+    //! WILL WORK ONLY FOR INDIAN PHONE NUMBERS WITH +91 code.
+    function onSignup() {
+        const mobLength = mobileNumber.length;
+        if ((mobLength !== 10)) {
+            toast.error("Please enter valid mobile number");
+            return;
+        }
+        setLoading(true);
+        onCaptchVerify();
 
-  return (
-    <div className="login">
+        const appVerifier = window.recaptchaVerifier;
+
+        const formatPh = "+91" + mobileNumber;
+        console.log(formatPh);
+
+        signInWithPhoneNumber(auth, formatPh, appVerifier)
+            .then((confirmationResult) => {
+                window.confirmationResult = confirmationResult;
+                setLoading(false);
+                setOTPSent(true);
+                toast.success("OTP sent successfully!");
+            })
+            .catch((error) => {
+                // toast.error("Please refresh the page and try again!");
+                console.log("error1: ", error.message);
+
+                setLoading(false);
+            });
+    }
+
+    function onOTPVerify() {
+        setLoading(true);
+        window.confirmationResult
+            .confirm(otp)
+            .then( (res) => {
+                //!OTP is verified, send request to server for token
+                console.log("RESRES: ", res);
+                loginUser();
+                setLoading(false);
+            })
+            .catch((err) => {
+                console.log(err);
+                toast.error("Invalid OTP")
+                setLoading(false);
+            });
+    }
+
+    const handleMobileNumberChange = (event) => {
+        setMobileNumber(event.target.value);
+    };
+
+    const handleOTPChange = (event) => {
+        setOTP(event.target.value);
+    };
+
+    const handleSendOtpClick = () => {
+        onSignup();
+    };
+
+    const handleVerifyOtpClick = () => {
+        onOTPVerify();
+    };
+
+    return (
+        <>
+          <div id="recaptcha-container"></div>
     
-    <div className="main">
-
-      <div className="webName">
-        <img className="logo" src={logo} alt="logo"></img>
-        <h5 className="website-name">Hey Entrepreneur!</h5>
-      </div>
-
-      <div className="welcome">
-        <h4>Welcome Back</h4>
-        <p>Welcome Back, Please Enter Your Details.</p>
-      </div>
-
-      <div className="formBox">
-
-        <div className="fieldBox">
-          <div className="icon">
-            <FaPhone />
+          <div className="login-form">
+            <h2>Login</h2>
+            <input
+              type="tel"
+              className="login-input"
+              placeholder="Mobile Number"
+              value={mobileNumber}
+              onChange={handleMobileNumberChange}
+              disabled={otpSent || loading} // Disable the input during OTP verification
+            />
+            {/* {error && <p className="error-message">{error}</p>} Show error message */}
+            {!otpSent ? (
+              <button
+                className="send-otp-button"
+                onClick={handleSendOtpClick}
+                disabled={loading} // Disable the button during OTP sending
+              >
+                {loading ? "Please wait..." : "Send OTP"}
+              </button>
+            ) : (
+              <>
+                <input
+                  type="text"
+                  className="otp-input"
+                  placeholder="Enter OTP"
+                  value={otp}
+                  onChange={handleOTPChange}
+                  disabled={loading} // Disable the input during OTP verification
+                />
+                <button
+                  className="login-button"
+                  onClick={handleVerifyOtpClick}
+                  disabled={loading} // Disable the button during OTP verification
+                >
+                  {loading ? "Please wait..." : "Verify"}
+                </button>
+              </>
+            )}
           </div>
-          <div className="line">
-            
-          </div>
-           <input type="tel" 
-               className="field"  
-               name='mobile' 
-               placeholder="Enter your registered mobile number" 
-               value={credentials.mobile} 
-               onChange={onChange}/>
-               </div>
-
-        <div className="fieldBox">
-          <div className="icon">
-             <FaLock />
-          </div>
-          <div className="line">
-              
-          </div>
-            <input type="password" 
-               className="field"  
-               name='password' 
-               placeholder="Enter your Password" 
-               value={credentials.password} 
-               onChange={onChange}/>
-               </div>
-
-               <div className="forgot-password">
-            <Link  className="forgot-link" to="/signup">Forgot password?</Link>
-          </div>
-
-          <div className="login-signup">
-            <button type="button" className="button" onClick={handleSubmit}
-              >Login</button>
-          </div>
-
-          <div className="register">  
-            <p>Don't have an account? 
-            <Link className="register-link" to="/register" >Register</Link></p>
-          </div>
-            
-      </div>
-
-    </div>
-
-  </div>
-  )
-}
+        </>
+      );
+    };
 
 export default Login;

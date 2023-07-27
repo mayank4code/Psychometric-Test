@@ -7,19 +7,23 @@ const Question = require("../mongodb/Models/Question");
 
 
 //Register
-router.post("/register", async(req,res)=>{
-    console.log("register request received");
+//Token must be there before this route is called.
+//Middleware will verify if user has verified there number or logged in.
+//!REGISTER or updating user can be done only single time. 
+router.post("/register", fetchPerson,  async(req,res)=>{
+    //* User is already created in login. We just have to update the user 
+
+    const userId = req.mongoID;
+    const user = await User.findById(userId);
+    if(user.isRegistered===true){
+        return res.status(403).json({success: false, message: "Already registered"});
+    }
+
+    req.body.isRegistered = true;
+
     try{
-        //generate new password
-        const salt = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash(req.body.password, salt);
-        req.body.password = hashedPassword;
-
-        const newUser = await new User(req.body);
-
-        //save user and response
-        const user = await newUser.save();
-        res.status(200).json({success: true, user});
+        const updatedUser = await User.findByIdAndUpdate(userId, req.body, {new:true});
+        res.status(200).json({success: true, updatedUser});
     } catch(err){
         console.log(err);
         res.status(500).json(err);
@@ -27,20 +31,22 @@ router.post("/register", async(req,res)=>{
 });
 
 //LOGIN
+//!Secure the API by using any code to request the APIs.
 router.post("/login", async (req,res)=>{
-    console.log("login request received");
+    // console.log("login request received");
+    //We only have mobile phone as input.
+    // const passKey = req.headers.passKey;
+    // console.log(passKey);
     try {
-        const user = await User.findOne({mobile: req.body.mobile});
+        let user = await User.findOne({mobile: req.body.mobile});
 
         if(!user){
-            return res.status(403).send("User not found");
+            // User is not already registered, so do register
+            const newUser = new User({mobile: req.body.mobile});
+            //save user and response
+            user = await newUser.save();
         }
-
-        const validPassword = await bcrypt.compare(req.body.password, user.password);
-
-        if(!validPassword){
-            return res.status(400).json("Wrong password");
-        }
+        console.log("user: ", user);
 
         // generate token - expiry time is 24 hours
         const data = {

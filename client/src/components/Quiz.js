@@ -12,16 +12,47 @@ import { toast, Toaster } from "react-hot-toast";
 
 
 function Quiz() {
+
+
     const navigate = useNavigate();
     const [questions, setQuestions] = useState([]);
     const [result, setResult] = useState([]);
     const [loading, setLoading] = useState(true);
-
+    const [isUserAuthenticated, setIsUserAuthenticated] = useState(false);
 
     useEffect(() => {
-
+        //*Validate the token to see if the page is accessible to the user
+        const validateUserToken = async () => {
+            const response = await fetch(`http://localhost:5000/api/user/verify-user`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'auth-token': localStorage.getItem('token'),
+              },
+            });
+            let response1 = await response.json();
+            console.log('ValidateUserToken response: ', response1);
+            if (response1.success === true) {
+              setIsUserAuthenticated(true);
+            } else {
+              toast.error('Please Login to continue', {
+                  style: {
+                    border: '1px solid #713200',
+                    padding: '16px',
+                    color: '#713200',
+                  },
+                  iconTheme: {
+                    primary: '#713200',
+                    secondary: '#FFFAEE',
+                  },
+                });
+              navigate('/login');
+            }
+          };
         
-        getQuestions();
+          // Run the effect only once on component mount
+          validateUserToken();
+          getQuestions();
     }, [])
 
     const getQuestions = async () => {
@@ -47,7 +78,7 @@ function Quiz() {
 
 
     const nextQuestion = () => {
-        if(clickedOption===5 && !result[currentQuestionIndex]){
+        if (clickedOption === 5 && !result[currentQuestionIndex]) {
             toast.error("Please select atleast one option");
             return;
         }
@@ -65,7 +96,7 @@ function Quiz() {
         }
     }
 
-    const updateResult = (option)=>{
+    const updateResult = (option) => {
         setResult((prevResult) => {
             const updatedResult = [...prevResult];
             updatedResult[currentQuestionIndex] = option;
@@ -74,8 +105,8 @@ function Quiz() {
         });
     }
 
-    const handleSubmit = async ()=>{
-        if(result.length!==questions.length){
+    const handleSubmit = async () => {
+        if (result.length !== questions.length) {
             toast.error("Please answer all questions");
             return;
         }
@@ -88,18 +119,21 @@ function Quiz() {
                 'Content-Type': 'application/json',
                 'auth-token': localStorage.getItem("token")
             },
-            body: JSON.stringify({responses:result})
+            body: JSON.stringify({ responses: result })
         });
         let response1 = await response.json();
         // console.log( response1);
-        if(response1.success==true){
-            toast.success("Test submitted successfully");
-            navigate("/test/result");
+        if (response1.success == true) {
+            toast.success("Test submitted successfully.");
+            navigate("/test/register");
         }
-        else{
+        else {
             toast.error("Unable to submit, please try again later.");
         }
-        document.exitFullscreen();
+
+        if (document.fullscreenElement) {
+            document.exitFullscreen();
+        }
 
     }
 
@@ -119,7 +153,9 @@ function Quiz() {
     return (
 
         <div className='bodyy'>
-            {questions.length !== 0 && !loading  ? <>
+
+
+            {isUserAuthenticated && questions.length !== 0 && !loading ? <>
 
                 <div className="image-handler">
                     <div className="container">
@@ -135,7 +171,7 @@ function Quiz() {
                                         // className="option-btn"
                                         className={`option-btn ${clickedOption === i + 1 || result[currentQuestionIndex] === i + 1 ? 'checked' : ''}`}
                                         key={i}
-                                        onClick={() =>{ setClickedOption(i + 1); updateResult(i+1) }}
+                                        onClick={() => { setClickedOption(i + 1); updateResult(i + 1) }}
                                     >
                                         {option}
                                     </button>
@@ -146,37 +182,36 @@ function Quiz() {
                             <input type="button" value="Next" id="next-button" onClick={nextQuestion} />
                             <input type="button" value="Prev" id="prev-button" onClick={previousQuestion} />
                         </div>
-                            <button style={result.length!==questions.length?{display:"none"}:{}} className='btn btn-success' onClick={handleSubmit}>Submit</button>
+                        <button style={result.length !== questions.length ? { display: "none" } : {}} className='btn btn-success' onClick={handleSubmit}>Submit</button>
 
                     </div>
                     <img src={imgbg} alt="img" />
                 </div>
 
-                <div className="right">
+                <div className="right my-5">
                     <img src={imageArray[currentQuestionIndex]} alt="img" />
 
-
                     <div className="status-info">
+
+                        <CircularProgressbar
+                            className="status"
+                            value={26}
+                            text={`${currentQuestionIndex + 1} / ${totalQuestions}`}
+                            styles={buildStyles({
+                                pathColor: `rgba(62, 152, 199, ${progressPercentage / 100})`,
+                                textColor: '#f88',
+                                trailColor: 'pink',
+                            })}
+                        />
                         <h5>Question <br></br> Answered</h5>
                     </div>
 
-                    <CircularProgressbar
-                        className="status"
-                        value={24}
-                        text={`${currentQuestionIndex + 1} / ${totalQuestions}`}
-                      styles={buildStyles({
-                        pathColor: `rgba(62, 152, 199, ${progressPercentage / 100})`,
-                        textColor: 'black',
-                        trailColor: 'pink',
-                      })}
-                    />
-
 
                 </div>
-                 
-            </>:<div  style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>
+
+            </> : <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>
                 {/* <SyncLoader size={30} color="#fb2576" /> */}
-                </div>
+            </div>
             }
         </div>
     )

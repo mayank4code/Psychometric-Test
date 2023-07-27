@@ -1,152 +1,82 @@
-.main{
-    width: 100%;
-    /* background-color: white; */
+/* LoginForm.css */
+.login-container {
     display: flex;
-    }
-.webName{
-    /* background-color:white; */
-    height: 6%;
-    width: 20%;
-    margin-left: 40%;
-    margin-top: 5%;
-    position: absolute;
-    display: flex;
-}
-.logo{
-    box-sizing: border-box;
-    border-radius: 50%;
-}
-.website-name{
-    padding-left: 15px;
-    padding-top: 8px;
-    font-size: 18px;
-    /* font-family:Verdana, Geneva, Tahoma, sans-serif; */
-}
-.welcome{
-    margin-left: 39%;
-    margin-top: 14%;
-    height: 7%;
-    text-align: center;
-    /* background-color: white; */
-}
-.welcome h3{
-font-family: sans-serif;
-}
-.welcome p{
-    font-size: 13px;
-    font-family: sans-serif;
-    color: grey;
-}
-.formBox{
-    /* background-color: white; */
-    height: 60%;
-    width: 40%;
-    margin-top: 20%;
-    position: absolute;
-    margin-left: 28%;
-    display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-} 
-.fieldBox{
-    width: 70%;
-    height: 13%;
-    margin-left: 2%;
-    background-color: white;
-    margin-bottom: 25px;
-    display: flex;
-    /* flex-direction:column; */
-    box-sizing: border-box;
-    border: 1px solid grey;
-    border-radius: 30px;
-}
-.icon{
-    height: 84%;
-    width: 15%;
-    /* background-color: white; */
-    margin-top: 4px;
-    margin-left: 3px;
-    padding-left: 20px;
-    padding-top: 5px;
-    border-radius: 30px;
-}
-.line{
-    height:80%;
-    width: 0.2%;
-    margin-top: 5px;
-    margin-left: 3px;
-    background-color: black;
-}
-.field{
-    width: 80%;
-    height: 84%;
-    margin-left: 2%;
-    /* padding-bottom:7%; */
-    border: none;
-    outline: none;
-    border-radius: 30px;
-}
-.forgot-password{
-    padding-left: 45%;
-}
-.forgot-link{
-    text-decoration: none;
-    color: black;
-}
-.login-signup{
-    width: 70%;
-    height:13%;
-}
-.button{
-    width: 90%;
-    height: 80%;
-    margin-left: 4.5%;
-    margin-top: 6%;
-    font-size: large;
-    box-sizing: border-box;
-    border-radius: 30px;
-    box-shadow: 0px 0px 1px 1.5px #FB2576;
-    border: 1px solid #FB2576;
-    background-color: #FB2576;
-    font-weight: 400;
-    color: white;
-    font-family: sans-serif;
-}
-.register{
-    padding-top: 30px;
-}
-.register-link{
-    padding-left: 15px;
-    text-decoration: none;
-}
-  
-
-/* Responsive styles */
-
-@media screen and (max-width: 767px) {
-    /* Styles for screens up to 767px (mobile devices) */
-    
-    .main{
-        margin-top: 100px;
-    }
-    .webName{
-        width: 50%;
-        margin-left: 28%;
-        margin-top: 0%;
-    }
-    .welcome{
-        margin-left: 25%;
-        margin-top: 15%;
-    }
-    .formBox{
-        width: 100%;
-        margin-top: 35%;
-        margin-left: 0;
-    } 
-    .fieldBox{
-        width: 80%;
-    }
-    
+    height: 100vh;
   }
   
+  .login-form {
+    width: 80%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 10% auto; /* Center the form horizontally */
+  }
+  
+  
+  .login-input,
+  .otp-input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    outline: none;
+  }
+  
+  .login-input::placeholder,
+  .otp-input::placeholder {
+    color: #ccc;
+  }
+  
+  .send-otp-button,
+  .login-button {
+    background-color: #FB2576;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .send-otp-button:hover,
+  .login-button:hover {
+    background-color: #e31b66;
+  }
+  
+/* Styling for disabled inputs */
+.login-input[disabled],
+.otp-input[disabled] {
+  background-color: #f2f2f2;
+  color: #b3b3b3;
+  cursor: not-allowed;
+}
+
+/* Styling for disabled buttons */
+.send-otp-button[disabled],
+.login-button[disabled] {
+  background-color: #FF1493; /* Bright pink color for disabled buttons */
+  color: #ffffff; /* White text for better visibility */
+  cursor: not-allowed;
+}
+
+/* Add a class for the error message */
+.error-message {
+  color: #FF0000;
+  margin-top: 10px;
+}
+
+
+  /* Media Query for Mobile View */
+  @media screen and (max-width: 600px) {
+    .login-form {
+      width: 90%;
+    }
+  }
   

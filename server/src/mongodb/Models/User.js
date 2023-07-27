@@ -1,33 +1,28 @@
 const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
-    email:{
-        type: String,
-        max: 50,
-        unique: true
-    },
+    
     mobile:{
         type: String,
-        maxlength :12,
+        maxlength :10,
         unique: true
     },
-    password: {
-        type: String,
-        required: true,
-        min: 4
+    isRegistered:{
+        type: Boolean,
+        default: false
+    },
+    email:{
+        type: String
     },
     name:{
         type:String,
-        required: true,
     },
     gender:{
         type: Number,
-        required: true,
         enum: [1,2,3]  //1 is male, 2 is female and 3 is other
     },
     age:{
         type:Number,
-        required: true,
     },
     address:{
         type: String

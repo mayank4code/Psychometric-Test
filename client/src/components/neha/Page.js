@@ -196,7 +196,7 @@ const Page = () => {
 
                 <div className='btn-wrap' ref={buttonref} >
 
-                    <Link style={{ textDecoration: 'nwrap' }}>
+                    <Link to='/test/instructions' style={{ textDecoration: 'nwrap' }}>
                         <motion.button className='btn btn-bottom'
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9, backgroundColor: '#a4acff' }}

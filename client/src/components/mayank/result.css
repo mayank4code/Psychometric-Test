@@ -46,7 +46,11 @@
 
   
   .chart-section {
-    display: grid;
+    display : flex ; 
+    flex-direction : row  ;
+    justify-content : space-around ;
+    flex-flow : wrap ;
+
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin-bottom: 2rem;
@@ -63,11 +67,14 @@
     margin-bottom: 0.5rem;
     font-size: 1.5rem;
     color: #333;
+    text-align: center; /* Add this line to center-align the text */
   }
-  
+
+
   .chart h4.chart-subtitle {
     margin-bottom: 1rem;
     color: #666;
+    text-align: center; /* Add this line to center-align the text */
   }
   
   .content-section {

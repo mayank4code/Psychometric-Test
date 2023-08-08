@@ -42,11 +42,20 @@ function PieChartCom ({responses}) {
   compilance  = Math.round((compilance/total)*100);
   obedience   = Math.round((obedience/total)*100);
 
+  //*Old Colour Combination
   const data = [
     { name: 'Confirimity',value: confirimity , fill:'#FFBA00' },
     { name: 'Compliance', value: compilance , fill:'#6CA044'},
     { name: 'Obedience', value: obedience , fill:'#A24F10'}
   ];
+
+  //*New Colour Combination
+  // const data = [
+  //   { name: 'Confirimity',value: confirimity , fill:'#F47A1F' },
+  //   { name: 'Compliance', value: compilance , fill:'#7AC142'},
+  //   { name: 'Obedience', value: obedience , fill:'#007CC3'}
+  // ];
+
   // console.log(data);
   
   return (
@@ -56,9 +65,9 @@ function PieChartCom ({responses}) {
           data={data}
           dataKey="value"
           isAnimationActive={true}
-          cx={195} cy={220}
+          cx={200   } cy={220}
           startAngle={90} endAngle={-270}
-          outerRadius={200} innerRadius={75}
+          outerRadius={195} innerRadius={75}
           labelLine={false}
           label={({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
             const radius = innerRadius + (outerRadius - innerRadius) * 0.15;

@@ -20,32 +20,40 @@ function RadialBarChartComponent({ responses }) {
     {
       name: 'Affected by group size or unanimity?',
       score: ((8 - (responses[1-1]-1)*2) + (8 - (responses[2-1]-1)*2)) , 
+      fill:'#F47A1F'
     },
     {
       name: 'Affected by cohesion or status of others?',
       score: ((8 - (responses[3-1]-1)*2) + (8 - (responses[4-1]-1)*2)), 
+      fill:'#FDBB2F'
     },
     {
       name: 'Affected by Reciprocity?',
       score: ((8 - (responses[15-1]-1)*2) + (8 - (responses[16-1]-1)*2)), 
+      fill:'#377B2B'
     },
     {
       name: 'Affected by Commitment and Consistency?',
       score: ((8 - (responses[17-1]-1)*2) + (8 - (responses[18-1]-1)*2)), 
+      fill:'#7AC142'
     },
     {
       name: 'Affected by Commitment and Consistency?',
       score: ((8 - (responses[21-1]-1)*2) + (8 - (responses[22-1]-1)*2)), 
+      fill:'#007CC3'
     },
     { name: 'Affected by Authority/ commands ?', 
-      score: ((8 - (responses[25-1]-1)*2) + (8 - (responses[26-1]-1)*2)),  },
+      score: ((8 - (responses[25-1]-1)*2) + (8 - (responses[26-1]-1)*2)), 
+      fill:'#00529B'
+    },
 
-    { name: 'Max', score: 20 }, // Maximum Possible  value
+    { name: 'Max', score: 20 ,fill:'#f7f7f7' }, // Maximum Possible  value
   ];
 
 
   const sortedData = rawData.sort((a, b) => a.score - b.score);
 
+  //*Old Colour Scheme for Fixed Colour Pattern Starts
   const colorArray = [
     { fill: '#213766' },
     { fill: '#ff5286' },
@@ -59,6 +67,11 @@ function RadialBarChartComponent({ responses }) {
   sortedData.forEach((data, index) => {
     sortedData[index].fill = colorArray[index].fill;
   });
+  //*Old Colour Scheme for Fixed Colour Pattern Ends
+
+  //* New Colour Pattern
+  // all the colours are mentioned in data it self , as we need to link the question to the colour scheme
+
 
 // console.log(sortedData);
 
@@ -66,7 +79,7 @@ function RadialBarChartComponent({ responses }) {
   return (
     <RadialBarChart
       width={400} height={570} //size of div
-      cx={180} cy={190} // coordinates of origin or centre
+      cx={200} cy={190} // coordinates of origin or centre
       innerRadius={40} outerRadius={220}
       startAngle={90} endAngle={-270} data={sortedData} barSize={50}
 
@@ -75,7 +88,13 @@ function RadialBarChartComponent({ responses }) {
         background
         dataKey="score"
       />
-      <Legend iconSize={15} layout="vertical" verticalAlign="bottom" align="centre" />
+      <Legend 
+        iconSize={15} 
+        layout="vertical" 
+        verticalAlign="bottom" 
+        align="centre" 
+        wrapperStyle={{ paddingLeft: '40px' }} // Add padding here
+      />
     </RadialBarChart>
   );
 };

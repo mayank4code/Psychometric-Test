@@ -62,7 +62,7 @@ const Graph = ({responses}) => {
       {/* Creating the rectangles with dotted border */}
 
       {maxOption===1 ?
-      <ReferenceArea
+      <ReferenceArea //Quadrant 1 
         x1={0+0.09} y1={5+0.09}
         x2={5-0.09} y2={10-0.09}
         stroke="dotted"
@@ -72,7 +72,7 @@ const Graph = ({responses}) => {
       /> : <></>}
 
       {maxOption===2 ?
-      <ReferenceArea
+      <ReferenceArea //Quadrant 2 
         x1={5+0.09} y1={5+0.09}
         x2={10-0.09} y2={10-0.09}
         stroke="dotted"
@@ -82,7 +82,7 @@ const Graph = ({responses}) => {
       /> : <></>}
 
       {maxOption===3 ?
-      <ReferenceArea
+      <ReferenceArea //Quadrant 3
         x1={5+0.09} y1={0+0.09}
         x2={10-0.09} y2={5-0.09}
         stroke="dotted"
@@ -92,7 +92,7 @@ const Graph = ({responses}) => {
       /> : <></>}
 
       {maxOption===4 ? 
-      <ReferenceArea
+      <ReferenceArea  //Quadrant 4
         x1={0+0.09} y1={0+0.09}
         x2={5-0.09} y2={5-0.09}
         stroke="dotted"

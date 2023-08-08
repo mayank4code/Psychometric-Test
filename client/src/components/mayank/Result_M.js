@@ -116,7 +116,7 @@ function Result_M() {
         
             
             {responses.length !== 0 && !loading ? (
-                <div className="result-page" ref={pdfRef}>
+                <div className="result-page background" ref={pdfRef}>
                     <div className="header">
                     <h2 className="page-heading" >
                     <FiBarChart2 className="icon-bar-chart my-5" /> Test Results
